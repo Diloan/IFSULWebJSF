@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 6.6.0  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subEnderecos" pageWidth="550" pageHeight="842" columnWidth="550" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="8a6f3bc8-e0ec-4284-8263-d27820aa49d6">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageHeight" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.pageWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.topMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.bottomMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.leftMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.rightMargin" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnWidth" value="pixel"/>
+	<property name="com.jaspersoft.studio.unit.columnSpacing" value="pixel"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="cidade" class="br.edu.ifsul.modelo.Cidade">
+		<fieldDescription><![CDATA[cidade]]></fieldDescription>
+	</field>
+	<field name="complemento" class="java.lang.String">
+		<fieldDescription><![CDATA[complemento]]></fieldDescription>
+	</field>
+	<field name="endereco" class="java.lang.String">
+		<fieldDescription><![CDATA[endereco]]></fieldDescription>
+	</field>
+	<field name="numero" class="java.lang.String">
+		<fieldDescription><![CDATA[numero]]></fieldDescription>
+	</field>
+	<field name="bairro" class="java.lang.String">
+		<fieldDescription><![CDATA[bairro]]></fieldDescription>
+	</field>
+	<field name="cep" class="java.lang.String">
+		<fieldDescription><![CDATA[cep]]></fieldDescription>
+	</field>
+	<title>
+		<band height="30">
+			<staticText>
+				<reportElement x="0" y="0" width="550" height="30" uuid="d53e2716-213c-423c-beda-4c403d341fc5"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Endereços]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="90" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="550" height="90" uuid="89a80d2a-4ac7-4bbc-aa6b-fd4d587d6320"/>
+			</rectangle>
+			<textField>
+				<reportElement x="65" y="0" width="300" height="30" uuid="01d9c6c8-5f1a-419d-9002-31a56c3f0df5"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{endereco}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="0" width="60" height="30" uuid="dca102dd-c563-4834-ba4e-0f61de349060"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Endereco]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="440" y="0" width="100" height="30" uuid="8637d9ec-5f7e-4248-a1c9-b5caa7cc878c"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="365" y="0" width="75" height="30" uuid="51b8f861-ee87-4778-87a6-1a1b505c9432"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Numero]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="75" y="30" width="190" height="30" uuid="c0f6a736-2fe0-45b2-98cf-024e7a725e66"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{complemento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="30" width="70" height="30" uuid="eb50a37c-b96c-445b-9780-4b242fe92489"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Complemento]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="325" y="30" width="215" height="30" uuid="289c3005-440b-44cc-b2c3-6035475e8c23"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{bairro}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="265" y="30" width="60" height="30" uuid="7958710f-2b54-4a0b-b198-01838d343d90"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Bairro]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="55" y="60" width="170" height="30" uuid="143671e0-2e1a-4c58-b02b-5d61e5455c36"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cep}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="5" y="60" width="50" height="30" uuid="980c53e0-f1d8-47f9-8fd9-9659abe6e7aa"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Cep]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="295" y="60" width="245" height="30" uuid="ea8af818-749a-4a31-b447-a5e7566cdf00"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cidade}.getNome()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="225" y="60" width="70" height="30" uuid="d73aa617-6b8c-477b-9755-3f2a60892b5a"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Cidade]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

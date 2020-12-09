@@ -11,10 +11,12 @@ import br.edu.ifsul.util.Util;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
- * @author ASUSX451
+ * @author Diloan Silva
+ * @email diloan.silva@gmail.com
  */
 @ManagedBean(name = "controlePais")
 @SessionScoped
@@ -22,16 +24,13 @@ public class ControlePais implements Serializable {
 
     private PaisDAO<Pais> dao;
     private Pais objeto;
-   
 
     public ControlePais() {
         dao = new PaisDAO<>();
     }
 
-    public String listar(){
-      
-        return "privado/pais/listar?faces-redirect=true";
-        //return "/privado/pais/TesteDT?faces-redirect=true";
+    public String listar() {
+        return "/privado/pais/listar?faces-redirect=true";
     }
 
     public String novo() {
@@ -41,9 +40,9 @@ public class ControlePais implements Serializable {
 
     public String salvar() {
         boolean persistiu = false;
-        if(objeto.getId() == null){
+        if (objeto.getId() == null) {
             persistiu = dao.persistir(objeto);
-        }else{
+        } else {
             persistiu = dao.merge(objeto);
         }
         if (persistiu) {
@@ -100,5 +99,5 @@ public class ControlePais implements Serializable {
     public void setObjeto(Pais objeto) {
         this.objeto = objeto;
     }
-    
+
 }

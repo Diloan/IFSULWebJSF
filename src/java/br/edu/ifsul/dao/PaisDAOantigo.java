@@ -20,15 +20,16 @@ import org.apache.jasper.tagplugins.jstl.core.ForEach;
 
 /**
  *
- * @author ASUSX451
+ *  @author Diloan Silva
+ * @email diloan.silva@gmail.com
  */
-public class PaisDAO implements Serializable {
+public class PaisDAOantigo implements Serializable {
 
     private String mensagem = "";
     private EntityManager em;
     private List<Pais> listadepaises;
 
-    public PaisDAO() {
+    public PaisDAOantigo() {
         em = EntityManagerUtil.getEntityManager();
     }
 

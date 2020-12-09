@@ -10,7 +10,8 @@ import java.io.Serializable;
 
 /**
  *
- * @author ASUSX451
+ *  @author Diloan Silva
+ * @email diloan.silva@gmail.com
  */
 public class PaisDAO<T> extends DAOGenerico<Pais> implements Serializable {
 

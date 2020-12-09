@@ -16,12 +16,46 @@
             <p:layoutUnit position="north" header="Sistema com JSF do IFSUL" style="text-align: center">
                 <h:form id="menu">
                     <p:megaMenu> 
-                        <p:submenu label="Cadastro">
+                        <p:menuitem value="Início" url="/index.xhtml" icon="ui-icon-home"/>
+                        <p:submenu label="Cadastro" rendered="#{controleLogin.usuarioLogado != null}">
                             <p:column>
                                 <p:submenu label="Básicos">
                                     <p:menuitem action="#{controlePais.listar()}"
                                                 value="Manutenção de Países" 
                                                 ajax="false"/>
+                                    <p:menuitem action="#{controleEstado.listar()}"
+                                                value="Manutenção de Estados" 
+                                                ajax="false"/>
+                                    <p:menuitem action="#{controlePessoaFisica.listar()}"
+                                                value="Manutenção de Pessoas Físicas" 
+                                                ajax="false"/>
+                                </p:submenu>
+                            </p:column>
+                        </p:submenu>
+                        <p:submenu label="Relatorios" rendered="#{controleLogin.usuarioLogado != null}">
+                            <p:column>
+                                <p:submenu label="Produtos" >
+                                    <p:menuitem action="#{controlePessoaFisica.imprimeProdutos()}"
+                                                value="Produtos" 
+                                                ajax="false"
+                                                target="_blank"/>
+                                    
+                                </p:submenu>
+                            </p:column>
+                        </p:submenu>
+                        <p:submenu label="Usuário">
+                            <p:column>
+                                <p:submenu label="Ações" >
+                                    <p:menuitem value="#{controleLogin.usuarioLogado.nome} : Sair do sistema"
+                                                rendered="#{controleLogin.usuarioLogado != null}"
+                                                ajax="false"
+                                                action="#{controleLogin.efetuarLogout()}"
+                                                icon="ui-icon-power"/>
+                                    <p:menuitem value="Entrar no sistema"
+                                                rendered="#{controleLogin.usuarioLogado == null}"
+                                                ajax="false"
+                                                action="#{controleLogin.paginaLogin()}"
+                                                icon="ui-icon-person"/>
                                 </p:submenu>
                             </p:column>
                         </p:submenu>

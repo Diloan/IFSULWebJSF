@@ -5,68 +5,63 @@
  */
 package br.edu.ifsul.controle;
 
+import br.edu.ifsul.dao.EstadoDAO;
 import br.edu.ifsul.dao.PaisDAO;
-import br.edu.ifsul.jpa.EntityManagerUtil;
-import br.edu.ifsul.modelo.Cidade;
+import br.edu.ifsul.modelo.Estado;
 import br.edu.ifsul.modelo.Pais;
 import br.edu.ifsul.util.Util;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
-import javax.faces.model.DataModel;
-import javax.persistence.EntityManager;
+import javax.faces.bean.ViewScoped;
 
 /**
  *
- * @author ASUSX451
+ * @author Diloan Silva
+ * @email diloan.silva@gmail.com
  */
-@ManagedBean(name = "controlePais")
-@SessionScoped
-public class ControlePais implements Serializable {
+@ManagedBean(name = "controleEstado")
+@ViewScoped
+public class ControleEstado implements Serializable {
 
-    private PaisDAO dao;
-    private Pais objeto;
-   
+    private EstadoDAO<Estado> dao;
+    private Estado objeto;
+    private PaisDAO<Pais> daoPais;
+    
 
-    public ControlePais() {
-        dao = new PaisDAO();
+    public ControleEstado() {
+        dao = new EstadoDAO<>();
+        daoPais = new PaisDAO<>();
     }
 
-    public String listar(){
-      
-        return "privado/pais/listar?faces-redirect=true";
-        //return "/privado/pais/TesteDT?faces-redirect=true";
+    public String listar() {
+        return "/privado/estado/listar?faces-redirect=true";
     }
 
-    public String novo() {
-        objeto = new Pais();
-        return "formulario?faces-redirect=true";
+    public void novo() {
+        objeto = new Estado();
     }
 
-    public String salvar() {
-        if (dao.salvar(objeto)) {
+    public void salvar() {
+        boolean persistiu = false;
+        if (objeto.getId() == null) {
+            persistiu = dao.persistir(objeto);
+        } else {
+            persistiu = dao.merge(objeto);
+        }
+        if (persistiu) {
             Util.mensagemInformacao(dao.getMensagem());
-            return "listar?faces-redirect=true";
         } else {
             Util.mensagemErro(dao.getMensagem());
-            return "formulario?faces-redirect=true";
         }
     }
 
-    public String cancelar() {
-        return "/privado/pais/listar?faces-rediret=true";
-    }
-
-    public String editar(Integer id) {
+    public void editar(Integer id) {
         objeto = dao.localizar(id);
-        return "formulario?faces-redirect=true";
     }
 
     public void remover(Integer id) {
         objeto = dao.localizar(id);
-        if (dao.remover(objeto)) {
+        if (dao.remove(objeto)) {
             Util.mensagemInformacao(dao.getMensagem());
         } else {
             Util.mensagemErro(dao.getMensagem());
@@ -76,29 +71,43 @@ public class ControlePais implements Serializable {
     /**
      * @return the dao
      */
-    public PaisDAO getDao() {
+    public EstadoDAO getDao() {
         return dao;
     }
 
     /**
      * @param dao the dao to set
      */
-    public void setDao(PaisDAO dao) {
+    public void setDao(EstadoDAO dao) {
         this.dao = dao;
     }
 
     /**
      * @return the objeto
      */
-    public Pais getObjeto() {
+    public Estado getObjeto() {
         return objeto;
     }
 
     /**
      * @param objeto the objeto to set
      */
-    public void setObjeto(Pais objeto) {
+    public void setObjeto(Estado objeto) {
         this.objeto = objeto;
     }
-    
+
+    /**
+     * @return the daoPais
+     */
+    public PaisDAO<Pais> getDaoPais() {
+        return daoPais;
+    }
+
+    /**
+     * @param daoPais the daoPais to set
+     */
+    public void setDaoPais(PaisDAO<Pais> daoPais) {
+        this.daoPais = daoPais;
+    }
+
 }

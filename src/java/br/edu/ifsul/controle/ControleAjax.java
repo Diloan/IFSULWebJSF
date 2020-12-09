@@ -11,7 +11,8 @@ import javax.faces.bean.ViewScoped;
 
 /** 
  *
- * @author ASUSX451
+ * @author Diloan Silva
+ * @email diloan.silva@gmail.com
  */
 @ManagedBean(name = "controleAjax")
 @ViewScoped

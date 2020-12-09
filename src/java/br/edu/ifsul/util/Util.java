@@ -11,7 +11,8 @@ import org.hibernate.loader.custom.Return;
 
 /**
  *
- * @author ASUSX451
+ *  @author Diloan Silva
+ * @email diloan.silva@gmail.com
  */
 public class Util {
     public static String getMensagemErro(Exception e){

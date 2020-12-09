@@ -13,7 +13,8 @@ import javax.persistence.EntityManager;
 
 /**
  *
- * @author ASUSX451
+ *  @author Diloan Silva
+ * @email diloan.silva@gmail.com
  */
 public class DAOGenerico<T> implements Serializable {
 
@@ -30,6 +31,7 @@ public class DAOGenerico<T> implements Serializable {
 
     public DAOGenerico() {
         em = EntityManagerUtil.getEntityManager();
+        
     }
 
     public List<T> getListaObjetos() {
